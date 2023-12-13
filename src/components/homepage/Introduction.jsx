@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { TypeAnimation } from "react-type-animation";
 
 function Introduction() {
   return (
@@ -8,14 +11,19 @@ function Introduction() {
           Hey! Welcome!
         </h1>
         <div className='flex flex-col justify-between items-center text-center text-sm p-4 w-full h-[50%] text-slate-500 '>
-          <p>
-            I'm Shole Alirezaei. I'm a front-end developer with more than 4
-            years of experience in leadership.
-          </p>
-          <p>
-            I'm passionate about learning new technologies and developing
-            responsive, user friendly web applications :)
-          </p>
+          <TypeAnimation
+            sequence={[
+              "I'm Shole Alirezaei. I'm a front-end developer with more than 4 years of experience in leadership.\nI'm passionate about learning new technologies and developing responsive, user friendly web applications :)",
+              2000,
+            ]}
+            wrapper='span'
+            speed={50}
+            style={{
+              fontSize: "1em",
+              display: "inline-block",
+              whiteSpace: "pre-line",
+            }}
+          />
           <div className=' m-5 border border-y-neutral-800 border-x-white w-full h-[40px] flex text-center justify-center items-center text-black'>
             <h3>Get to know me</h3>
           </div>

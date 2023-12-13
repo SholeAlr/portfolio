@@ -1,3 +1,4 @@
 {
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/doodle-jump/page": "app/doodle-jump/page.js"
 }

@@ -40,3 +40,7 @@ h1 {
 .card {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+.doodle-bg {
+  background: url("/images/sky.jpeg");
+}
