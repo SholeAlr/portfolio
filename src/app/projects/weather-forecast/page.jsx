@@ -5,8 +5,8 @@ import Current from "@/components/weatherApp/Current";
 import Forecast from "@/components/weatherApp/Forecast";
 
 function page() {
-  const apiKey = process.env.NEXT_PUBLIC_WEATHER_KEY1;
-  const url = process.env.NEXT_PUBLIC_WEATHER_API;
+  const apiKey = "f537c9609e96ea685aac2c09ca176bfa";
+  const url = "http://api.openweathermap.org";
 
   const [city, setCity] = useState("TEHRAN");
   const [weatherData, setWeatherData] = useState({});
