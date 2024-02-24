@@ -6,11 +6,11 @@ import { TypeAnimation } from "react-type-animation";
 function Introduction() {
   return (
     <div className='w-full h-full flex flex-col items-center bg-white'>
-      <div className='flex flex-col bg-base-100 my-auto md:mt-[150px] lg:w-[85%] text-center'>
+      <div className='flex w-full flex-col my-auto md:mt-[150px] lg:w-[85%] text-center'>
         <h1 className='flex p-4 m-4 text-4xl sm:text-8xl mx-auto text-purplish'>
           Hey! Welcome!
         </h1>
-        <div className='flex flex-col justify-between items-center text-center text-sm p-4 w-full h-[50%] text-slate-500 '>
+        <div className='flex flex-col justify-between items-center text-center text-sm p-4 w-full h-[50%] text-black '>
           <TypeAnimation
             sequence={[
               "I'm Shole Alirezaei, a Front-End Developer with a knack for crafting user-friendly, responsive web apps.\n As a leader with over 4 years in the field, I thrive on learning and applying new technologies to create seamless digital experiences.",

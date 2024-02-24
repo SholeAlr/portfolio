@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <div className='navbar bg-base-100 shadow z-30 sticky flex flex-row justify-between'>
+    <div className='navbar bg-white text-black shadow z-30 sticky flex flex-row justify-between'>
       <div className=' flex justify-around w-[150px]'>
         <Link href='/'>
           <Image src={"/images/home.svg"} width={30} height={30} alt={"home"} />

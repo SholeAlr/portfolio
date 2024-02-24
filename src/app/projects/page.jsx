@@ -5,10 +5,10 @@ import Link from "next/link";
 function page() {
   <Head>
     <link rel='icon' href='/favicon.ico' />
-    <title>Projects</title>
+    <title>Sholeh's Portfolio | Projects</title>
   </Head>;
   return (
-    <div className='w-full h-[91vh] grid md:grid-cols-5 p-2 justify-center bg-purplish'>
+    <div className='w-full h-[91vh] grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 p-2 justify-center bg-purplish'>
       <Link href='/projects/weather-forecast'>
         <div className='bg-white aspect-square h-[220px] rounded-md flex justify-center items-center flex-col'>
           <div className=' p-2'>
@@ -20,7 +20,7 @@ function page() {
               alt='weather app'
             />
           </div>
-          <p className=''>Weather Forecast</p>
+          <p className='text-black'>Weather Forecast</p>
         </div>
       </Link>
       <Link href='/projects/todolist'>
@@ -28,13 +28,13 @@ function page() {
           <div className=' p-2'>
             <Image
               src={"/images/checklist.webp"}
-              width={100}
-              height={100}
+              width={70}
+              height={70}
               className='w-full h-full'
               alt='todo list'
             />
           </div>
-          <p className=''>Todo List</p>
+          <p className='text-black'>Todo List</p>
         </div>
       </Link>
     </div>
