@@ -37,6 +37,20 @@ function page() {
           <p className='text-black'>Todo List</p>
         </div>
       </Link>
+      <Link href='https://doodle-jump-ten.vercel.app/'>
+        <div className='bg-white aspect-square h-[220px] rounded-md flex justify-center items-center flex-col'>
+          <div className=' p-2'>
+            <Image
+              src={"/images/doodler.png"}
+              width={70}
+              height={70}
+              className='w-full h-full'
+              alt='todo list'
+            />
+          </div>
+          <p className='text-black'>Doodle Jump!</p>
+        </div>
+      </Link>
     </div>
   );
 }
