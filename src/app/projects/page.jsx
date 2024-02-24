@@ -8,7 +8,7 @@ function page() {
     <title>Sholeh's Portfolio | Projects</title>
   </Head>;
   return (
-    <div className='w-full h-[91vh] grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 p-2 justify-center bg-purplish'>
+    <div className='w-full h-[91vh] min-h-max grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-2 justify-center bg-purplish overflow-scroll'>
       <Link href='/projects/weather-forecast'>
         <div className='bg-white aspect-square h-[220px] rounded-md flex justify-center items-center flex-col'>
           <div className=' p-2'>
