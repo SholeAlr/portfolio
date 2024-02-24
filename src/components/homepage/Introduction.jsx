@@ -6,7 +6,7 @@ import { TypeAnimation } from "react-type-animation";
 function Introduction() {
   return (
     <div className='w-full h-full flex flex-col items-center bg-white'>
-      <div className='flex w-full flex-col my-auto md:mt-[150px] lg:w-[85%] text-center'>
+      <div className='flex w-full flex-col my-auto  lg:w-[85%] text-center'>
         <h1 className='flex p-4 m-4 text-4xl sm:text-8xl mx-auto text-purplish'>
           Hey! Welcome!
         </h1>
