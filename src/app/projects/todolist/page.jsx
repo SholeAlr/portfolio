@@ -76,7 +76,7 @@ function Page() {
   };
 
   return (
-    <div className='flex flex-col p-2 justify-center w-[100%] sm:w-[75%] md:w-[55%] md:text-lg items-center mx-auto'>
+    <div className='flex flex-col p-2 justify-center w-[100%] sm:w-[75%] md:w-[55%] md:text-lg items-center mx-auto bg-white'>
       <div className='flex flex-col items-center justify-between w-full'>
         <div className='flex flex-row w-full items-center justify-between mt-2 md:mt-4'>
           <input

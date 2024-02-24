@@ -44,12 +44,12 @@ function EditTodo({ eachTodo, togglePriority }) {
         contentLabel='Example Modal'
       >
         <h2 className='w-full bg-purplish text-white h-[45px] text-center p-3'>
-          Edit Todo{" "}
+          Edit Todo
         </h2>
         <form className='mt-2 flex flex-col'>
           <input
             type={"text"}
-            placeholder={eachTodo.todo}
+            value={todoTitle}
             onChange={(e) => {
               setTodoTitle(e.target.value);
             }}
