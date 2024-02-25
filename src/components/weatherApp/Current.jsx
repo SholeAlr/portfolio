@@ -11,20 +11,20 @@ function Current({ weatherData, url }) {
   }
   return (
     <>
-      <div className='mt-2 flex flex-row lg:col-span-2 w-full border bg-purplish p-2 rounded-xl text-sm justify-evenly text-white'>
+      <div className='flex flex-row lg:col-span-2 w-full border bg-purplish p-2 rounded-xl text-sm justify-evenly text-white'>
         {weatherData.weather ? (
           <Image
             src={`${url}/img/w/${weatherData.weather[0].icon}.png`}
             width={100}
             height={100}
             alt='weather icon'
-            className='aspect-square w-[100px] rounded-full border border-white bg-cyan mr-2'
+            className='aspect-square w-[100px] h-[100px] rounded-full border border-white bg-cyan mr-2 lg:my-auto'
           />
         ) : (
-          <div className='h-[100px] w-[100px] rounded-full bg-black'></div>
+          <div className='h-[100px] w-[100px] rounded-full bg-black lg:my-auto'></div>
         )}
 
-        <div className='flex flex-col max-h-fit'>
+        <div className='flex flex-col max-h-fit lg:justify-around'>
           <p className='flex'>
             Location: {weatherData.name},{weatherData.sys?.country}
           </p>
@@ -33,7 +33,7 @@ function Current({ weatherData, url }) {
           <p>Wind Speed: {weatherData.wind?.speed} km/h</p>
         </div>
       </div>
-      <div className='flex flex-col text-sm p-2 border border-purplish rounded-xl'>
+      <div className='flex flex-col text-sm p-2 border border-purplish rounded-xl justify-around'>
         <div className='flex flex-row justify-between'>
           <p>Feels Like: {weatherData.main?.feels_like}°C</p>
           <p>Humidity: {weatherData.main?.humidity}%</p>
