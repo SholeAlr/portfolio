@@ -62,12 +62,12 @@ function page() {
   }, []);
 
   return (
-    <div className='w-full h-[90vh] grid lg:grid-cols-3 justify-center p-2 md:px-56 gap-2'>
+    <div className='w-full h-[90vh] grid lg:grid-cols-3 justify-center p-2 md:px-56 gap-2 bg-white'>
       <div className='w-full h-[30px] lg:col-span-3 flex flex-row gap-2 justify-between items-center'>
         <input
           type={"text"}
           onChange={(e) => setCity(e.target.value)}
-          className='h-full border lg:col-span-2 w-full border-purplish rounded-md p-1'
+          className='h-full border lg:col-span-2 w-full border-purplish rounded-md p-1 bg-white'
           placeholder='City Name'
         />
         <button
