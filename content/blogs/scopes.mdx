@@ -1,0 +1,316 @@
+---
+title: "JavaScript Scope Explained with a Medieval Castle 🏰"
+description: "Forget boring definitions. Let's learn JavaScript Scope by exploring a medieval castle."
+date: "2026-07-22"
+tags:
+  - javascript
+  - scope
+  - execution-context
+cover: "/images/blogs/javascript-scopes.png"
+published: true
+readingTime: "7 min"
+---
+
+# Welcome to Castle JavaScript 🏰
+
+Long ago, in the Kingdom of JavaScript...
+
+there stood a magnificent castle.
+
+Not an ordinary castle.
+
+This castle had **rules**.
+
+And JavaScript **loves** rules.
+
+---
+
+## The Kingdom 🌍
+
+Outside the castle lies the entire kingdom.
+
+Anything placed here is visible to almost everyone.
+
+```js
+const king = "Arthur";
+const treasure = "💰";
+```
+
+```
+🌍 Kingdom
+
+👑 King = Arthur
+
+💰 Treasure
+```
+
+Think of this as the **Global Scope**.
+
+Everyone living inside the castle knows the king.
+
+Everyone knows where the treasure is.
+
+Life is good.
+
+---
+
+# Inside the Castle
+
+The castle contains many rooms.
+
+Each room is a function.
+
+```js
+function throneRoom() {}
+```
+
+The moment someone enters a room...
+
+JavaScript closes the door.
+
+A brand-new space is created.
+
+```
+🌍 Kingdom
+
+    │
+
+    └──── 🏰 Throne Room
+```
+
+This room can have its own secrets.
+
+```js
+function throneRoom() {
+  const crown = "👑";
+}
+```
+
+```
+🏰 Throne Room
+
+👑 Crown
+```
+
+Only people **inside** this room know about the crown.
+
+---
+
+# The Royal Messenger
+
+Now imagine a royal messenger enters the Throne Room.
+
+He receives a mission.
+
+> "Bring me the treasure."
+
+He looks around.
+
+```
+🏰 Throne Room
+
+👑 Crown
+```
+
+No treasure.
+
+So what does he do?
+
+He leaves the room and searches outside.
+
+```
+⬆ Leaving room...
+```
+
+```
+🌍 Kingdom
+
+💰 Treasure
+```
+
+Found it!
+
+This is exactly how JavaScript looks for variables.
+
+---
+
+# JavaScript's Search Rule
+
+Whenever JavaScript needs a variable, it always follows the same path.
+
+```
+Current Room
+
+⬆
+
+Parent Room
+
+⬆
+
+Castle
+
+⬆
+
+Kingdom
+
+⬆
+
+ReferenceError 😭
+```
+
+Notice something?
+
+Only **upwards**.
+
+Never sideways.
+
+Never downwards.
+
+Never into another random room.
+
+---
+
+# Secret Rooms
+
+Let's build another room inside the Throne Room.
+
+```js
+const king = "Arthur";
+
+function throneRoom() {
+  const crown = "👑";
+
+  function secretVault() {
+    console.log(king);
+    console.log(crown);
+  }
+
+  secretVault();
+}
+
+throneRoom();
+```
+
+The Secret Vault knows:
+
+✅ The king
+
+✅ The crown
+
+Why?
+
+Because it can walk outside its own room.
+
+```
+Secret Vault
+
+⬆
+
+Throne Room
+
+⬆
+
+Kingdom
+```
+
+---
+
+# But Can the Throne Room Peek Inside?
+
+```js
+function throneRoom() {
+  function secretVault() {
+    const dragonEgg = "🥚";
+  }
+
+  console.log(dragonEgg);
+}
+```
+
+No.
+
+The Throne Room has **no idea** what's hidden inside the Secret Vault.
+
+Rooms don't magically know each other's secrets.
+
+JavaScript never searches downward.
+
+---
+
+# The Golden Rule 👑
+
+Every room follows one law:
+
+> Look inside your own room first.
+
+If it's not there...
+
+Open the door.
+
+Look in the parent room.
+
+Keep climbing.
+
+If nobody knows...
+
+Throw a `ReferenceError`.
+
+---
+
+# Mini Challenge ⚔️
+
+Without running the code...
+
+```js
+const kingdom = "Camelot";
+
+function castle() {
+  const knight = "Lancelot";
+
+  function tower() {
+    console.log(kingdom);
+    console.log(knight);
+  }
+
+  tower();
+}
+
+castle();
+```
+
+What gets printed?
+
+Take a guess.
+
+...
+
+...
+
+...
+
+Answer:
+
+```text
+Camelot
+Lancelot
+```
+
+Because the tower can always climb back through the castle to find what it needs.
+
+---
+
+## What We Learned
+
+Scope is simply **where JavaScript is allowed to look for variables**.
+
+The search always starts in the current room and climbs upward through the castle.
+
+It never searches inside another room or deeper into child rooms.
+
+That's the Scope Chain.
+
+And once you understand the castle...
+
+Closures become much less mysterious.
+
+<CodeChallenge id='scope-detective' />
