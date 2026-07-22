@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export const AboutMe = () => {
   return (
-    <p className='max-w-3xl leading-8 text-gray-300'>
+    <p className='max-w-3xl text leading-8 text-gray-300'>
       I&apos;m a Full-Stack Developer with{" "}
       <span className='font-bold text-white'>7+ years</span> of turning{" "}
       <span className='text-amber-400 font-semibold inline-block'>
@@ -32,13 +32,9 @@ export const AboutMe = () => {
       <br />
       <br />
       I&apos;m obsessed with clean{" "}
-      <motion.span
-        whileHover={{ letterSpacing: "0.15em" }}
-        transition={{ duration: 0.25 }}
-        className='text-orange-400 font-bold inline-block cursor-default'
-      >
+      <span className='text-orange-400 font-bold inline-block cursor-default'>
         architecture
-      </motion.span>
+      </span>
       <motion.span
         whileHover={{ x: [0, 6, -6, 0] }}
         transition={{ duration: 0.4 }}

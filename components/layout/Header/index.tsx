@@ -10,11 +10,23 @@ export const Header = () => {
   const { isMenuOpen, handleToggleMenu } = useToggleMenu();
   return (
     <div className='relative z-50'>
-      <div className='sticky bg-mist-800 h-14 p-2 flex flex-row justify-between items-center border-b border-b-mist-500'>
+      <div className='sticky bg-mist-800 h-14 p-2 sm:px-8 md:px-12 lg:px-24 flex flex-row justify-between items-center border-b border-b-mist-500'>
         <FaHamburger
-          className='size-6  text-pink-600 cursor-pointer'
+          className='size-6  text-pink-600 cursor-pointer sm:hidden'
           onClick={handleToggleMenu}
         />
+
+        <div className='flex text-mist-200 font-bold hidden sm:block'>
+          {MENU_LINKS.map((link) => (
+            <Link
+              key={link.id}
+              className='hover:text-pink-600 p-2 sm:p-4'
+              href={link.href}
+            >
+              {link.text}
+            </Link>
+          ))}
+        </div>
         <div className='flex flex-row gap-2'>
           <Link
             href='https://drive.google.com/file/d/1aGW2zeePHnz2fsBRzSQzX2sNk84cmncG/view?usp=sharing'
