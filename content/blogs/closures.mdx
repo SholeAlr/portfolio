@@ -1,0 +1,426 @@
+---
+title: "JavaScript Closures Explained Without Making Your Brain Cry"
+description: "Closures are one of JavaScript's most confusing concepts... until they're not. Let's fix that with coffee, cookies, and questionable jokes."
+date: "2026-07-20"
+tags:
+  - JavaScript
+  - Closures
+  - Beginner
+cover: "/images/blogs/javascript-closures.png"
+published: true
+readingTime: "8 min"
+---
+
+# JavaScript Closures Explained Without Making Your Brain Cry ☕
+
+If you've ever Googled **"JavaScript closures"**, you've probably seen something like this:
+
+> _"A closure is the combination of a function bundled together with references to its surrounding lexical environment."_
+
+...
+
+Cool.
+
+I understood **every single word** individually.
+
+Just not **the sentence**.
+
+So let's pretend nobody ever said _lexical environment_ and learn closures like normal humans.
+
+---
+
+## Imagine a Coffee Shop ☕
+
+You're at your favorite coffee shop.
+
+You order a cappuccino.
+
+The barista writes your name on the cup.
+
+A few minutes later they yell:
+
+> **"Sholeh! Cappuccino!"**
+
+How did they remember your name?
+
+Because the cup **kept the information**.
+
+A closure is basically JavaScript saying:
+
+> "Here's your function...
+>
+> ...and here's a little backpack 🎒 containing everything it might need later."
+
+The function walks away carrying that backpack forever.
+
+---
+
+## First Example
+
+```js
+function makeGreeting(name) {
+  return function () {
+    console.log(`Hello ${name}!`);
+  };
+}
+
+const greet = makeGreeting("Sholeh");
+
+greet();
+```
+
+Output:
+
+```text
+Hello Sholeh!
+```
+
+Wait...
+
+`makeGreeting()` already finished executing.
+
+Shouldn't `name` disappear?
+
+Normally...
+
+Yes.
+
+But JavaScript is secretly awesome.
+
+When the inner function was created, it packed `name` into its little backpack.
+
+That backpack is called...
+
+🥁
+
+A **closure**.
+
+---
+
+## Let's Slow Down
+
+Step 1
+
+```js
+const greet = makeGreeting("Sholeh");
+```
+
+JavaScript creates
+
+```text
+name = "Sholeh"
+```
+
+Then it returns
+
+```js
+function () {
+    console.log(name);
+}
+```
+
+Instead of throwing away `name`, JavaScript quietly says:
+
+> "Hmm... this function still needs it."
+
+So it keeps it alive.
+
+Think of it like this:
+
+```
+Function
+│
+├── Code
+└── Backpack 🎒
+      └── name = "Sholeh"
+```
+
+Later...
+
+```js
+greet();
+```
+
+The function opens the backpack.
+
+```
+🎒
+
+name = "Sholeh"
+```
+
+and prints it.
+
+Easy.
+
+---
+
+# Another Example 🍪
+
+Imagine you're baking cookies.
+
+```js
+function cookieJar() {
+  let cookies = 5;
+
+  return function () {
+    cookies--;
+
+    console.log(`${cookies} cookies left.`);
+  };
+}
+
+const eatCookie = cookieJar();
+```
+
+Now...
+
+```js
+eatCookie();
+```
+
+```
+4 cookies left.
+```
+
+Again...
+
+```js
+eatCookie();
+```
+
+```
+3 cookies left.
+```
+
+Again...
+
+```js
+eatCookie();
+```
+
+```
+2 cookies left.
+```
+
+Wait...
+
+Where is `cookies` living?
+
+`cookieJar()` finished a long time ago.
+
+The answer:
+
+Inside the closure.
+
+Our little backpack is now carrying:
+
+```
+🎒
+
+cookies = 2
+```
+
+Every call updates what's inside.
+
+---
+
+# Why Is This Useful?
+
+Without closures...
+
+Every function would forget everything immediately.
+
+Closures give functions **memory**.
+
+They're like your phone remembering your Wi-Fi password.
+
+Imagine typing your password every single time.
+
+Exactly.
+
+Nobody wants that.
+
+---
+
+# Real-World Example: React
+
+Ever used this?
+
+```jsx
+const [count, setCount] = useState(0);
+```
+
+Then
+
+```jsx
+<button onClick={() => setCount(count + 1)}>+</button>
+```
+
+That little arrow function remembers `count`.
+
+That's...
+
+Yep.
+
+A closure.
+
+---
+
+Or this:
+
+```js
+setTimeout(() => {
+  console.log("Hello!");
+}, 1000);
+```
+
+One second later...
+
+The callback still remembers variables from outside.
+
+Magic?
+
+Nope.
+
+Closure.
+
+---
+
+# Private Variables 🔒
+
+Closures let you create private state.
+
+```js
+function bankAccount() {
+  let balance = 100;
+
+  return {
+    deposit(amount) {
+      balance += amount;
+    },
+
+    withdraw(amount) {
+      balance -= amount;
+    },
+
+    getBalance() {
+      return balance;
+    },
+  };
+}
+
+const account = bankAccount();
+
+account.deposit(50);
+
+console.log(account.getBalance());
+```
+
+Output
+
+```
+150
+```
+
+Can someone do this?
+
+```js
+account.balance = 9999999;
+```
+
+Nope.
+
+Because `balance` isn't public.
+
+It's hiding safely inside the closure.
+
+Like my snacks when guests come over.
+
+---
+
+# Common Mistake
+
+People think:
+
+> "The outer function finished, so its variables must be destroyed."
+
+Not always.
+
+If an inner function still needs them...
+
+JavaScript keeps them alive.
+
+Only when **nothing references them anymore** can the garbage collector clean them up.
+
+---
+
+# Mental Model
+
+Whenever you see:
+
+```js
+function outer() {
+  let value = 42;
+
+  return function inner() {
+    console.log(value);
+  };
+}
+```
+
+Don't think:
+
+> "Lexical environment."
+
+Think:
+
+> "The inner function left the house carrying a backpack."
+
+Inside that backpack:
+
+```
+🎒
+
+value = 42
+```
+
+That's literally all you need to remember.
+
+---
+
+# TL;DR
+
+A closure is simply:
+
+> **A function that remembers variables from where it was created, even after that outer function has finished running.**
+
+That's it.
+
+No scary definitions.
+
+No mysterious magic.
+
+Just a tiny backpack full of memories.
+
+---
+
+## Final Thoughts
+
+The first time I learned closures, I felt like JavaScript was trying to gaslight me.
+
+_"The function is gone... but somehow the variable is still there?"_
+
+After a while, it finally clicked.
+
+Now, every time I see a callback, an event handler, or a React hook, I picture a tiny function walking around with a little backpack full of variables.
+
+And honestly?
+
+That's a lot easier to remember than **"references to its surrounding lexical environment."** 😄
+
+Happy coding! 🚀
+
+```
+
+```
