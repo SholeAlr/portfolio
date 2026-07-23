@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { AboutMe } from "../components";
+import { AboutMe, Button } from "../components";
 
 export default function Home() {
   return (
@@ -18,6 +18,21 @@ export default function Home() {
             Senior Full Stack Developer
           </p>
           <AboutMe />
+          <p className='pt-4 w-full md:max-w-lg text-base-content/80 border-t border-mist-400'>
+            Currently open to remote opportunities.
+          </p>
+
+          <div className='flex gap-4'>
+            <Button href='contact'>Contact Me</Button>
+            <Button
+              variant='secondary'
+              href='https://drive.google.com/file/d/1aGW2zeePHnz2fsBRzSQzX2sNk84cmncG/view?usp=sharing'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Download Resume
+            </Button>
+          </div>
         </div>
       </section>
     </div>
