@@ -8,6 +8,8 @@ export default function Button({
   href,
   leftIcon,
   rightIcon,
+  target,
+  rel,
   className = "",
   ...props
 }: ButtonProps) {
@@ -39,7 +41,7 @@ export default function Button({
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link target={target} href={href} className={classes} rel={rel}>
         {leftIcon}
         {children}
         {rightIcon}

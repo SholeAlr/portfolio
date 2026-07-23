@@ -8,4 +8,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
+  target?: string;
+  rel?: string;
 }
