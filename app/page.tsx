@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { AboutMe, Button } from "../components";
+import { AboutMe, Button, IconButton } from "../components";
+import { socials } from "@/constants/socials";
 
 export default function Home() {
   return (
@@ -32,6 +33,19 @@ export default function Home() {
             >
               Download Resume
             </Button>
+          </div>
+
+          <div className='mt-2 flex items-center justify-center gap-4'>
+            {socials.map((social) => (
+              <IconButton
+                key={social.name}
+                icon={social.icon}
+                href={social.href}
+                ariaLabel={social.name}
+                target={social.external ? "_blank" : undefined}
+                rel={social.external ? "noopener noreferrer" : undefined}
+              />
+            ))}
           </div>
         </div>
       </section>
