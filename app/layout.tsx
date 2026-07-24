@@ -30,7 +30,9 @@ export default function RootLayout({
     >
       <body className='min-h-full flex flex-col bg-mist-800 text-mist-300 h-screen'>
         <Header />
-        <main className='px-2 sm:px-8 md:px-12 lg:px-24'>{children}</main>
+        <main className='px-2 sm:px-8 md:px-12 lg:px-24 h-full overflow-scroll scrollbar-none scrollbar-thumb-pink-600 sm:scrollbar-thin md:scrollbar-gutter-stable scroll-ml-2'>
+          {children}
+        </main>
       </body>
     </html>
   );
