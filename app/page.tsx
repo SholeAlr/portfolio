@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { AboutMe, Button, IconButton } from "../components";
 import { socials } from "@/constants/socials";
+import { MyDesk } from "@/components/Home/MyDesk";
 
 export default function Home() {
   return (
@@ -47,6 +48,12 @@ export default function Home() {
               />
             ))}
           </div>
+        </div>
+      </section>
+
+      <section>
+        <div className='flex flex-col gap-y-4'>
+          <MyDesk />
         </div>
       </section>
     </div>
