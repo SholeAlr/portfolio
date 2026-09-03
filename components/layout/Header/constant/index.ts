@@ -16,8 +16,8 @@ export const MENU_LINKS = [
   },
   {
     id: 1004,
-    text: "About",
-    href: "/about",
+    text: "Contact",
+    href: "/contact",
   },
   {
     id: 1005,
