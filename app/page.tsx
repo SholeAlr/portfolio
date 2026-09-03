@@ -52,7 +52,7 @@ export default function Home() {
       </section>
 
       <section>
-        <div className='flex flex-col gap-y-4'>
+        <div className='flex flex-col gap-y-4 pb-10'>
           <MyDesk />
         </div>
       </section>
