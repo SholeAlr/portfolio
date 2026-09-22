@@ -85,22 +85,25 @@ export function MyDesk() {
   if (loading) {
     return (
       <div className='py-12 text-center text-sm text-muted-foreground'>
-        Loading My Desk…
+        Loading My Board…
       </div>
     );
   }
 
   return (
     <section className='w-full'>
-      <div className='mb-6 flex items-center justify-between'>
-        <h2 className='text-2xl font-semibold'>My Desk</h2>
-        <Button
-          variant='ghost'
-          onClick={() => setShowForm(true)}
-          className='rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90'
-        >
-          Suggest something
-        </Button>
+      <div className='mb-6 flex flex-col justify-between'>
+        <h2 className='text-2xl font-semibold'>My Board</h2>
+        <div className='flex'>
+          Curiouse to see what I'm doing right now?! Checkout my Trello board
+          here and{" "}
+          <div
+            onClick={() => setShowForm(true)}
+            className='ml-2 text-pink-500 hover:cursor-pointer hover:text-pink-600 underline'
+          >
+            Suggest Something
+          </div>
+        </div>
       </div>
 
       <div className='grid grid-cols-1 gap-4 md:grid-cols-4'>
