@@ -1,10 +1,11 @@
 import { COLUMN_ORDER } from "@/lib/board-status";
-import { ComponentType, ReactNode } from "react";
+import { ReactNode } from "react";
+import type { IconType } from "react-icons";
 
 export interface BoardColumnProps {
   status: (typeof COLUMN_ORDER)[number];
   meta: {
-    icon: ComponentType;
+    icon: IconType;
     description: string;
     buttonLabel: string;
     current?: boolean;
